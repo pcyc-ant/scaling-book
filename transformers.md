@@ -215,6 +215,8 @@ S[\blue{B}, T, \red{S}, \blue{K}, G] \cdot V[\blue{B}, \red{S}, \blue{K}, H]
 \end{array}
 $$
 
+NOTE: Most recent transformers use causal masking. In this case, useful attention FLOPs are reduced by a factor of ~1/2. To achieve this reduction in practice, we need to use an attention kernel, rather than a naive einsum. We leave this factor out for simplicity.
+
 ### Other Operations
 
 There are several other operations happening in a Transformer.  Layernorms are comparatively cheap and can be ignored for first-order cost estimates. There is also the final enormous (though not per-layer) unembedding matrix multiply.
